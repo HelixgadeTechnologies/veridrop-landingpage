@@ -1,6 +1,7 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 
 function App() {
+  const [isModalOpen, setIsModalOpen] = useState(false);
   useEffect(() => {
     // Simple intersection observer for fading in elements
     const observerOptions = {
@@ -55,8 +56,8 @@ function App() {
             <a href="#business" className="font-medium text-slate-500 hover:text-primary-dark transition-colors">For Business</a>
           </div>
           <div className="flex items-center gap-4">
-            <a href="#" className="btn btn-ghost">Log In</a>
-            <a href="#" className="btn btn-primary">Get Started</a>
+            <a href="#" onClick={(e) => { e.preventDefault(); setIsModalOpen(true); }} className="btn btn-ghost">Log In</a>
+            <a href="#" onClick={(e) => { e.preventDefault(); setIsModalOpen(true); }} className="btn btn-primary">Get Started</a>
           </div>
         </div>
       </nav>
@@ -73,8 +74,8 @@ function App() {
               The ultimate trust-centric platform. We combine secure escrow payments with on-demand physical inspection to eliminate e-commerce fraud completely.
             </p>
             <div className="flex flex-wrap gap-4 mb-10">
-              <a href="#" className="btn btn-primary btn-large">I'm a Buyer</a>
-              <a href="#" className="btn btn-secondary btn-large">For Vendors/Business</a>
+              <a href="#" onClick={(e) => { e.preventDefault(); setIsModalOpen(true); }} className="btn btn-primary btn-large">I'm a Buyer</a>
+              <a href="#" onClick={(e) => { e.preventDefault(); setIsModalOpen(true); }} className="btn btn-secondary btn-large">For Vendors/Business</a>
             </div>
             <div className="flex gap-8 text-slate-500 text-sm font-medium">
               <div className="flex items-center gap-2">
@@ -236,8 +237,8 @@ function App() {
             <h2 className="text-5xl mb-6 relative z-10 text-white">Ready to trade with confidence?</h2>
             <p className="text-xl text-white/80 mb-10 max-w-2xl mx-auto relative z-10">Join thousands of buyers and sellers who trust Veridrop for their most important transactions.</p>
             <div className="flex justify-center gap-4 flex-wrap relative z-10">
-              <a href="#" className="btn btn-primary btn-large">Create Free Account</a>
-              <a href="#" className="btn btn-outline btn-large">Talk to Sales</a>
+              <a href="#" onClick={(e) => { e.preventDefault(); setIsModalOpen(true); }} className="btn btn-primary btn-large">Create Free Account</a>
+              <a href="#" onClick={(e) => { e.preventDefault(); setIsModalOpen(true); }} className="btn btn-outline btn-large">Talk to Sales</a>
             </div>
           </div>
         </div>
@@ -289,6 +290,26 @@ function App() {
           </div>
         </div>
       </footer>
+
+      {/* Coming Soon Modal */}
+      {isModalOpen && (
+        <div className="fixed inset-0 z-[100] flex items-center justify-center bg-primary-dark/80 backdrop-blur-sm p-4">
+          <div className="bg-white rounded-[24px] p-8 max-w-sm w-full text-center shadow-2xl animate-fade-in-up relative">
+            <button 
+              onClick={() => setIsModalOpen(false)}
+              className="absolute top-4 right-4 text-slate-400 hover:text-primary-dark transition-colors"
+            >
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="w-6 h-6"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+            </button>
+            <div className="w-16 h-16 bg-accent-light text-accent rounded-full flex items-center justify-center mx-auto mb-6">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="w-8 h-8"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
+            </div>
+            <h3 className="text-2xl mb-2">Coming Soon!</h3>
+            <p className="text-slate-500 mb-8">We're working hard to launch Veridrop. Check back soon or join our waitlist.</p>
+            <button onClick={() => setIsModalOpen(false)} className="btn btn-primary w-full">Got it</button>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
