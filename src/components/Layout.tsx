@@ -9,12 +9,8 @@ const Layout = () => {
       {/* Navigation */}
       <nav className="navbar fixed top-0 left-0 right-0 h-20 bg-white/90 backdrop-blur-md z-50 border-b border-black/5 transition-shadow duration-300">
         <div className="container-custom h-full flex justify-between items-center">
-          <Link to="/" className="flex items-center gap-3 font-display font-extrabold text-2xl text-primary-dark">
-            <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M16 2L2 9L16 16L30 9L16 2Z" fill="#10B981"/>
-              <path d="M2 23L16 30L30 23V9L16 16L2 9V23Z" fill="#0B132B"/>
-            </svg>
-            <span>Veridrop</span>
+          <Link to="/" className="flex items-center">
+            <img src="/veridrop.png" alt="Veridrop" className="h-16 w-auto object-contain" />
           </Link>
           <div className="hidden md:flex gap-8">
             <a href="/#how-it-works" className="font-medium text-slate-500 hover:text-primary-dark transition-colors">How it Works</a>
@@ -38,10 +34,7 @@ const Layout = () => {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-10 mb-16">
             <div className="md:col-span-1">
               <Link to="/" className="flex items-center gap-3 font-display font-extrabold text-2xl text-primary-dark mb-4">
-                <svg width="24" height="24" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M16 2L2 9L16 16L30 9L16 2Z" fill="#10B981"/>
-                  <path d="M2 23L16 30L30 23V9L16 16L2 9V23Z" fill="#0B132B"/>
-                </svg>
+                <img src="/veridrop.png" alt="Veridrop" className="w-12 h-12 object-contain" />
                 <span>Veridrop</span>
               </Link>
               <p className="text-slate-500 max-w-[250px]">Secure logistics & escrow for the modern web.</p>
